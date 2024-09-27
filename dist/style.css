@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#info {
+    position: absolute;
+    display: block;
+    z-index: 99;
+    left: 5%;
+    top: 25%;
+    color: white;
+    font-family: "Abel", sans-serif;
+}
