@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+  #info {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    z-index: 100;
+    display: block;
+    color: white;
+    font-family: "Abel", sans-serif;
+  }
+

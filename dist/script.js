@@ -1,7 +1,7 @@
 import * as THREE from "https://esm.sh/three";
 //import { OrbitControls } from "https://esm.sh/three/examples/jsm/controls/OrbitControls.js";
 
-//import space from 'dist/imgs/space.jpg';
+//import space from 'imgs/space.jpg';
 
 const renderer = new THREE.WebGLRenderer();
 
@@ -71,6 +71,9 @@ directionalLight.castShadow = true;
 
 //const gridHelper = new THREE.GridHelper(30);
 //scene.add(gridHelper);
+
+//const textureLoader = new THREE.TextureLoader();
+//scene.background = textureLoader.load('imgs/space.jpg');
 
 function animate() {
   earth.rotation.y += 0.01;
