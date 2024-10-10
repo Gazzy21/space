@@ -84,3 +84,31 @@ function animate() {
 }
 
 renderer.setAnimationLoop(animate);
+
+
+
+// divider
+
+
+
+/*const planets = [
+  {
+    name: `Earth`,
+    description: `Earth, our vibrant blue planet, is the third rock from the Sun and
+    the only known celestial body to support life. With diverse
+    ecosystems ranging from lush forests and expansive oceans to arid
+    deserts and icy tundras, Earth is a unique tapestry of
+    interconnected environments. Its atmosphere, rich in oxygen and
+    nitrogen, shields us from cosmic radiation while nurturing life. As
+    we navigate the challenges of climate change and environmental
+    degradation, our planet reminds us of the delicate balance that
+    sustains all living things. Earth is not just our home; it’s a
+    remarkable marvel of nature, deserving of our care and protection.`,
+    color: blue,
+  }
+  {
+    name: `Mercury`,
+    description: `temp`,
+    color: red,
+  }
+]*/
