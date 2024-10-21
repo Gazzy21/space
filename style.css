@@ -13,3 +13,11 @@ body {
   font-family: "Abel", sans-serif;
 }
 
+.middle {
+  align-content: center;
+}
+
+.btnstyling {
+  font-size: 30px;
+  margin-bottom: 1.25vh;
+}

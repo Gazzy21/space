@@ -85,13 +85,15 @@ function animate() {
 
 renderer.setAnimationLoop(animate);
 
+window.addEventListener('resize', function() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.inneHeight);
+})
 
+// end three.js
 
-// divider
-
-
-
-/*const planets = [
+const planets = [
   {
     name: `Earth`,
     description: `Earth, our vibrant blue planet, is the third rock from the Sun and
@@ -104,11 +106,44 @@ renderer.setAnimationLoop(animate);
     degradation, our planet reminds us of the delicate balance that
     sustains all living things. Earth is not just our home; it’s a
     remarkable marvel of nature, deserving of our care and protection.`,
-    color: blue,
-  }
+    color: 'blue',
+  },
   {
     name: `Mercury`,
     description: `temp`,
-    color: red,
+    color: 'red',
   }
-]*/
+];
+
+const info = document.getElementById('info'); // Make sure to get the element first
+
+info.innerHTML = `
+  <div class="row">
+    <div class="col-3">
+      <h1 class="mb-5">${planets[0].name}</h1>
+      <h4>${planets[0].description}</h4>
+    </div>
+    <div class="col-6"></div>
+    <div class="col-2 text-center middle">
+      <h1>Milky Way</h1>
+      <hr>
+      <button class="btnstyling id="btnMercury">Mercury</button>
+      <br>
+      <button class="btnstyling" id="btnVenus">Venus</button>
+      <br>
+      <button class="btnstyling" id="btnEarth">Earth</button>
+      <br>
+      <button class="btnstyling" id="btnMars">Mars</button>
+      <br>
+      <button class="btnstyling" id="btnJupiter">Jupiter</button>
+      <br>
+      <button class="btnstyling" id="btnSaturn">Saturn</button>
+      <br>
+      <button class="btnstyling" id="btnUranus">Uranus</button>
+      <br>
+      <button class="btnstyling" id="btnPluto">Pluto</button>
+    </div>
+    <div class="col-1"></div>
+  </div>
+`;
+
