@@ -106,16 +106,16 @@ const planets = [
     degradation, our planet reminds us of the delicate balance that
     sustains all living things. Earth is not just our home; it’s a
     remarkable marvel of nature, deserving of our care and protection.`,
-    color: 'blue',
+    color: 0x0000ff,
   },
   {
     name: `Mercury`,
     description: `temp`,
-    color: 'red',
+    color: 0xFF0000,
   }
 ];
 
-const info = document.getElementById('info'); // Make sure to get the element first
+const info = document.getElementById('info');
 
 info.innerHTML = `
   <div class="row">
