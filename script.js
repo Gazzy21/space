@@ -1,23 +1,4 @@
 import * as THREE from "https://esm.sh/three";
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
-const loader = new GLTFLoader();
-
-// loader.load(
-//   'assets/earth/scene.gltf', 
-//   (gltf) => {
-//       const model = gltf.scene;
-//       scene.add(model); // Add the model to your Three.js scene
-//   },
-//   (xhr) => {
-//       console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-//   },
-//   (error) => {
-//       console.error('An error happened', error);
-//   }
-// );
-
-//import { OrbitControls } from "https://esm.sh/three/examples/jsm/controls/OrbitControls.js";
 
 //import space from 'imgs/space.jpg';
 
@@ -38,18 +19,38 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-//const axesHelper = new THREE.AxesHelper(5);
-//scene.add(axesHelper);
-
 //const orbit = new OrbitControls(camera, renderer.domElement);
 
 camera.position.set(100, 0, 20);
 //orbit.update();
 
+// Mercury
+const mercuryGeometry = new THREE.SphereGeometry(8, 64, 32);
+const mercuryMaterial = new THREE.MeshStandardMaterial({
+  color: 0xff0000,
+  wireframe: false,
+});
+const mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
+scene.add(mercury);
+mercury.position.set(0, 0, 0);
+mercury.castShadow = true;
+
+// Venus
+const venusGeometry = new THREE.SphereGeometry(8, 64, 32);
+const venusMaterial = new THREE.MeshStandardMaterial({
+  color: 0xffff00,
+  wireframe: false,
+});
+const venus = new THREE.Mesh(venusGeometry, venusMaterial);
+scene.add(venus);
+venus.position.set(50, 0, 0);
+venus.castShadow = true;
+
+// Earth and Moon
 const earthGeometry = new THREE.SphereGeometry(8, 64, 32);
 const earthMaterial = new THREE.MeshStandardMaterial({
   color: 0x0000ff,
-  wireframe: true,
+  wireframe: false,
 });
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 scene.add(earth);
@@ -59,42 +60,72 @@ earth.castShadow = true;
 const moonGeometry = new THREE.SphereGeometry(2, 64, 32);
 const moonMaterial = new THREE.MeshStandardMaterial({
   color: 0xffffff,
-  wireframe: true,
+  wireframe: false,
 });
 const moon = new THREE.Mesh(moonGeometry, moonMaterial);
 scene.add(moon);
 moon.position.set(110, 8, 0);
 moon.castShadow = true;
 
-const mercuryGeometry = new THREE.SphereGeometry(8, 64, 32);
-const mercuryMaterial = new THREE.MeshStandardMaterial({
-  color: 0xff0000,
-  wireframe: true,
+const marsGeometry = new THREE.SphereGeometry(8, 64, 32);
+const marsMaterial = new THREE.MeshStandardMaterial({
+  color: 0xff4500,
+  wireframe: false,
 });
-const mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
-scene.add(mercury);
-mercury.position.set(0, 0, 0);
-mercury.castShadow = true;
+const mars = new THREE.Mesh(marsGeometry, marsMaterial);
+scene.add(mars);
+mars.position.set(150, 0, 0);
+mars.castShadow = true;
 
-const venusGeometry = new THREE.SphereGeometry(8, 64, 32);
-const venusMaterial = new THREE.MeshStandardMaterial({
-  color: 0xffff00,
-  wireframe: true,
+const jupiterGeometry = new THREE.SphereGeometry(8, 64, 32);
+const jupiterMaterial = new THREE.MeshStandardMaterial({
+  color: 0x8b0000,
+  wireframe: false,
 });
-const venus = new THREE.Mesh(venusGeometry, venusMaterial);
-scene.add(venus);
-venus.position.set(50, 0, 0);
-venus.castShadow = true;
+const jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
+scene.add(jupiter);
+jupiter.position.set(200, 0, 0);
+jupiter.castShadow = true;
 
-//const planeGeometry = new THREE.PlaneGeometry(30, 30);
-//const planeMaterial = new THREE.MeshStandardMaterial({
-//  color: 0x808080,
-//  side: THREE.DoubleSide
-//});
-//const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-//scene.add(plane);
-//plane.rotation.x = -0.5 * Math.PI;
-//plane.receiveShadow = true;
+const saturnGeometry = new THREE.SphereGeometry(8, 64, 32);
+const saturnMaterial = new THREE.MeshStandardMaterial({
+  color: 0xfffff0,
+  wireframe: false,
+});
+const saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
+scene.add(mars);
+saturn.position.set(250, 0, 0);
+saturn.castShadow = true;
+
+const uranusGeometry = new THREE.SphereGeometry(8, 64, 32);
+const uranusMaterial = new THREE.MeshStandardMaterial({
+  color: 0x00ffff,
+  wireframe: false,
+});
+const uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
+scene.add(uranus);
+uranus.position.set(300, 0, 0);
+uranus.castShadow = true;
+
+const neptuneGeometry = new THREE.SphereGeometry(8, 64, 32);
+const neptuneMaterial = new THREE.MeshStandardMaterial({
+  color: 0x00008b,
+  wireframe: false,
+});
+const neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
+scene.add(neptune);
+neptune.position.set(350, 0, 0);
+neptune.castShadow = true;
+
+const plutoGeometry = new THREE.SphereGeometry(8, 64, 32);
+const plutoMaterial = new THREE.MeshStandardMaterial({
+  color: 0x8b4513,
+  wireframe: false,
+});
+const pluto = new THREE.Mesh(plutoGeometry, plutoMaterial);
+scene.add(pluto);
+pluto.position.set(400, 0, 0);
+pluto.castShadow = true;
 
 const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
 scene.add(ambientLight);
@@ -104,21 +135,29 @@ scene.add(directionalLight);
 directionalLight.position.set(-30, 10, 15);
 directionalLight.castShadow = true;
 
-//const dLightHelper = new THREE.DirectionalLightHelper(directionalLight, 5);
-//scene.add(dLightHelper);
-
-//const gridHelper = new THREE.GridHelper(30);
-//scene.add(gridHelper);
-
 //const textureLoader = new THREE.TextureLoader();
 //scene.background = textureLoader.load('imgs/space.jpg');
 
 function animate() {
-  earth.rotation.y += 0.01;
-
   mercury.rotation.y += 0.01;
 
+  venus.rotation.y += 0.01;
+
+  earth.rotation.y += 0.01;
+
   moon.rotation.y += 0.02;
+
+  mars.rotation.y += 0.01;
+
+  jupiter.rotation.y += 0.01;
+
+  saturn.rotation.y += 0.01;
+
+  uranus.rotation.y += 0.01;
+
+  pluto.rotation.y += 0.02;
+
+  
 
   renderer.render(scene, camera);
 }
@@ -199,37 +238,12 @@ const planets = [
                 It has a complex orbit and was reclassified from a planet to a dwarf planet in 2006.`,
     color: 0x8b4513,
   },
+  {
+    name: `Black Hole`,
+    description: `A black hole is an astronomical object with a gravitational pull so strong that nothing, not even light, can escape from it. Formed from the collapse of massive stars, black holes warp space and time around them. They have an event horizon, a boundary beyond which nothing can return. Inside, gravity is infinitely strong, and the core, known as the singularity, defies our understanding of physics. Black holes come in different sizes, from stellar black holes a few times the mass of the Sun to supermassive black holes that sit at the centers of galaxies, including our Milky Way.`,
+    color: 0x8b4513,
+  },
 ];
-
-// info.innerHTML = `
-//   <div class="row">
-//     <div class="col-3">
-//       <h1 class="mb-5">${planets[0].name}</h1>
-//       <h4>${planets[0].description}</h4>
-//     </div>
-//     <div class="col-6"></div>
-//     <div class="col-2 text-center middle">
-//       <h1>Milky Way</h1>
-//       <hr>
-//       <button class="btnstyling id="btnMercury">Mercury</button>
-//       <br>
-//       <button class="btnstyling" id="btnVenus">Venus</button>
-//       <br>
-//       <button class="btnstyling" id="btnEarth">Earth</button>
-//       <br>
-//       <button class="btnstyling" id="btnMars">Mars</button>
-//       <br>
-//       <button class="btnstyling" id="btnJupiter">Jupiter</button>
-//       <br>
-//       <button class="btnstyling" id="btnSaturn">Saturn</button>
-//       <br>
-//       <button class="btnstyling" id="btnUranus">Uranus</button>
-//       <br>
-//       <button class="btnstyling" id="btnPluto">Pluto</button>
-//     </div>
-//     <div class="col-1"></div>
-//   </div>
-// `;
 
 $(document).ready(function () {
   // Create the main container
@@ -308,6 +322,7 @@ $(document).ready(function () {
         current = 0;
         // Perform your desired action here
         alert("Secret code activated!");
+        camera.position.set(500, 0, 20);
       }
     } else {
       current = 0;
