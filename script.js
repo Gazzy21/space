@@ -93,7 +93,7 @@ const saturnMaterial = new THREE.MeshStandardMaterial({
   wireframe: false,
 });
 const saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
-scene.add(mars);
+scene.add(saturn);
 saturn.position.set(250, 0, 0);
 saturn.castShadow = true;
 
