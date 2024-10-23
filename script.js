@@ -157,7 +157,7 @@ function animate() {
 
   pluto.rotation.y += 0.02;
 
-  
+
 
   renderer.render(scene, camera);
 }
@@ -246,18 +246,18 @@ const planets = [
 ];
 
 $(document).ready(function () {
-  // Create the main container
+  const $container = $('<div class="container-fluid"></div>');
   const $row = $('<div class="row"></div>');
   const $col3 = $('<div class="col-3"></div>');
   const $col6 = $('<div class="col-6"></div>');
-  const $col2 = $(
-    '<div class="col-2 text-center middle"><h1>Milky Way</h1><hr></div>'
-  );
+  const $col2 = $('<div class="col-2 text-center middle"><h1>Milky Way</h1><hr></div>');
   const $col1 = $('<div class="col-1"></div>');
 
-  // Add planet info
-  $col3.append(`<h1 class="mb-5">${planets[2].name}</h1>`);
-  $col3.append(`<h4>${planets[2].description}</h4>`);
+  $row.append($col3, $col6, $col2, $col1);
+$container.append($row); // Append the row to the container
+
+// Add the container to the DOM
+$("#info").append($container);
 
   // Create buttons
   const buttonNames = [
@@ -285,6 +285,16 @@ $(document).ready(function () {
         camera.position.set(100, 0, 20);
       } else if (index === 3) {
         camera.position.set(150, 0, 20);
+      } else if (index === 4) {
+        camera.position.set(200, 0, 20);
+      } else if (index === 5) {
+        camera.position.set(250, 0, 20);
+      } else if (index === 6) {
+        camera.position.set(300, 0, 20);
+      } else if (index === 7) {
+        camera.position.set(350, 0, 20);
+      } else if (index === 8) {
+        camera.position.set(400, 0, 20);
       }
     });
     $col2.append($button).append("<br>");
