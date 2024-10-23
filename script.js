@@ -254,10 +254,10 @@ $(document).ready(function () {
   const $col1 = $('<div class="col-1"></div>');
 
   $row.append($col3, $col6, $col2, $col1);
-$container.append($row); // Append the row to the container
+  $container.append($row); // Append the row to the container
 
-// Add the container to the DOM
-$("#info").append($container);
+  // Add the container to the DOM
+  $("#info").append($container);
 
   // Create buttons
   const buttonNames = [
