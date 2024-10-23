@@ -248,16 +248,19 @@ const planets = [
 $(document).ready(function () {
   const $container = $('<div class="container-fluid"></div>');
   const $row = $('<div class="row"></div>');
-  const $col3 = $('<div class="col-3"></div>');
+
+  // Add h1 and h4 tags inside $col3 for the planet name and description
+  const $col3 = $('<div class="col-3"><h1></h1><h4></h4></div>');
   const $col6 = $('<div class="col-6"></div>');
   const $col2 = $('<div class="col-2 text-center middle"><h1>Milky Way</h1><hr></div>');
   const $col1 = $('<div class="col-1"></div>');
 
   $row.append($col3, $col6, $col2, $col1);
-  $container.append($row); // Append the row to the container
+  $container.append($row);
 
   // Add the container to the DOM
   $("#info").append($container);
+
 
   // Create buttons
   const buttonNames = [
