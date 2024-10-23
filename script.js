@@ -1,4 +1,21 @@
 import * as THREE from "https://esm.sh/three";
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+const loader = new GLTFLoader();
+
+loader.load(
+  'assets/earth/scene.gltf', 
+  (gltf) => {
+      const model = gltf.scene;
+      scene.add(model); // Add the model to your Three.js scene
+  },
+  (xhr) => {
+      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+  },
+  (error) => {
+      console.error('An error happened', error);
+  }
+);
 //import { OrbitControls } from "https://esm.sh/three/examples/jsm/controls/OrbitControls.js";
 
 //import space from 'imgs/space.jpg';
