@@ -15,6 +15,9 @@ body {
 
 .middle {
   align-content: center;
+  position: absolute;
+  top: 15%;
+  right: 5%;
 }
 
 .btnstyling {

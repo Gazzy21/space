@@ -253,7 +253,7 @@ $(document).ready(function () {
         camera.position.set(100, 0, 20);
       } else if (index === 3) {
         camera.position.set(150, 0, 20);
-      };
+      }
     });
     $col2.append($button).append("<br>");
   });
