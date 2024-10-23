@@ -5,19 +5,33 @@ body {
 
 #info {
   position: absolute;
-  top: 15%;
-  left: 5%;
   z-index: 100;
   display: block;
   color: white;
   font-family: "Abel", sans-serif;
 }
 
-.middle {
-  align-content: center;
-  /* position: absolute;
+.contentPanel {
+  position: fixed; /* Keeps the panel in place */
   top: 15%;
-  right: 5%; */
+  left: 5%;
+  z-index: 100;
+  display: block;
+  color: white;
+  font-family: "Abel", sans-serif;
+  max-width: 25%; /* Limits the width of the panel */
+  max-height: 70%; /* Prevents the panel from growing too tall */
+  overflow-y: auto; /* Adds scrolling if the content is too long */
+}
+
+.buttonPanel {
+  position: fixed; /* Keeps the panel in place */
+  top: 15%;
+  right: 10%;
+  z-index: 100;
+  display: block;
+  color: white;
+  font-family: "Abel", sans-serif;
 }
 
 .btnstyling {
