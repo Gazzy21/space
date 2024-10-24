@@ -306,7 +306,7 @@ $(document).ready(function () {
 
 buttonNames.forEach((name, index) => {
   const $button = $( 
-    `<button class="btnstyling" id="btn${name}">${name}</button>` 
+    `<button class="btnstyling pulse" id="btn${name}">${name}</button>` 
   );
   $button.on("click", function () {
     updateInfo(index); // Update info based on button clicked
