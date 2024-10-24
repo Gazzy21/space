@@ -26,8 +26,8 @@ body {
 
 .buttonPanel {
   position: fixed; /* Keeps the panel in place */
-  top: 15%;
-  right: 10%;
+  top: 20%;
+  right: 12.5%;
   z-index: 100;
   display: block;
   color: white;

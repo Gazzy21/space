@@ -1,7 +1,5 @@
 import * as THREE from "https://esm.sh/three";
 
-//import space from 'imgs/space.jpg';
-
 const renderer = new THREE.WebGLRenderer();
 
 renderer.shadowMap.enabled = true;
@@ -47,11 +45,7 @@ const uranusTexture = textureLoader.load('2k_uranus.jpg');
 const neptuneTexture = textureLoader.load('2k_neptune.jpg');
 const plutoTexture = textureLoader.load('path_to_pluto_texture.jpg');
 
-
-//const orbit = new OrbitControls(camera, renderer.domElement);
-
 camera.position.set(100, 0, 20);
-//orbit.update();
 
 // Mercury
 const mercuryGeometry = new THREE.SphereGeometry(8, 64, 32);
@@ -191,8 +185,6 @@ function animate() {
 
   pluto.rotation.y += 0.02;
 
-
-
   renderer.render(scene, camera);
 }
 
@@ -201,9 +193,8 @@ renderer.setAnimationLoop(animate);
 window.addEventListener("resize", function () {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.inneHeight);
+  renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
 // end three.js
 
 const planets = [
