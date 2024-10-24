@@ -31,19 +31,19 @@ const loadTexture = (url) => {
 const textureLoader = new THREE.TextureLoader();
 
 // Background texture (space background)
-const spaceTexture = textureLoader.load('imgs/8k_stars_milky_way.jpg');
+const spaceTexture = textureLoader.load("imgs/8k_stars_milky_way.jpg");
 scene.background = spaceTexture;
 
 // Planet Textures
-const mercuryTexture = textureLoader.load('2k_mercury.jpg');
-const venusTexture = textureLoader.load('2k_venus_surface.jpg');
-const earthTexture = textureLoader.load('2k_earth_daymap.jpg');
-const marsTexture = textureLoader.load('2k_mars.jpg');
-const jupiterTexture = textureLoader.load('2k_jupiter.jpg');
-const saturnTexture = textureLoader.load('2k_saturn.jpg');
-const uranusTexture = textureLoader.load('2k_uranus.jpg');
-const neptuneTexture = textureLoader.load('2k_neptune.jpg');
-const plutoTexture = textureLoader.load('path_to_pluto_texture.jpg');
+const mercuryTexture = textureLoader.load("2k_mercury.jpg");
+const venusTexture = textureLoader.load("2k_venus_surface.jpg");
+const earthTexture = textureLoader.load("2k_earth_daymap.jpg");
+const marsTexture = textureLoader.load("2k_mars.jpg");
+const jupiterTexture = textureLoader.load("2k_jupiter.jpg");
+const saturnTexture = textureLoader.load("2k_saturn.jpg");
+const uranusTexture = textureLoader.load("2k_uranus.jpg");
+const neptuneTexture = textureLoader.load("2k_neptune.jpg");
+const plutoTexture = textureLoader.load("path_to_pluto_texture.jpg");
 
 camera.position.set(100, 0, 20);
 
@@ -158,6 +158,25 @@ scene.add(blackhole);
 blackhole.position.set(500, 0, 0);
 blackhole.castShadow = true;
 
+const bhr1Geometry = new THREE.RingGeometry(12.5, 5, 32);
+const bhr1Material = new THREE.MeshBasicMaterial({
+  color: 0xEEDD82,
+  side: THREE.DoubleSide,
+});
+const bhr1 = new THREE.Mesh(bhr1Geometry, bhr1Material);
+scene.add(bhr1);
+bhr1.position.set(500, 0, 0);
+
+const bhr2Geometry = new THREE.RingGeometry(12.5, 5, 32);
+const bhr2Material = new THREE.MeshBasicMaterial({
+  color: 0xEEDD82,
+  side: THREE.DoubleSide,
+});
+const bhr2 = new THREE.Mesh(bhr2Geometry, bhr2Material);
+scene.add(bhr2);
+bhr2.position.set(500, 0, 0);
+bhr2.rotation.x = -0.4 * Math.PI;
+
 const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
 scene.add(ambientLight);
 
@@ -185,6 +204,10 @@ function animate() {
 
   pluto.rotation.y += 0.02;
 
+  bhr1.rotation.z += 0.1;
+
+  bhr2.rotation.z += 0.1;
+  
   renderer.render(scene, camera);
 }
 
@@ -280,8 +303,10 @@ const planets = [
 $(document).ready(function () {
   const $container = $('<div class="container-fluid"></div>');
   const $leftPanel = $('<div class="contentPanel"><h1></h1><h4></h4></div>'); // Replaces col-3
-  const $centerPanel = $('<div></div>'); // Replaces col-6
-  const $buttonPanel = $('<div class="text-center buttonPanel"><h1>Milky Way</h1><hr></div>'); // Replaces col-2
+  const $centerPanel = $("<div></div>"); // Replaces col-6
+  const $buttonPanel = $(
+    '<div class="text-center buttonPanel"><h1>Milky Way</h1><hr></div>'
+  ); // Replaces col-2
 
   // Append the panels to the container
   $container.append($leftPanel, $centerPanel, $buttonPanel);
@@ -290,84 +315,84 @@ $(document).ready(function () {
   // Add the container to the DOM
   $("#info").append($container);
 
- // Create buttons
- const buttonNames = [
-  "Sun",
-  "Mercury",
-  "Venus",
-  "Earth",
-  "Mars",
-  "Jupiter",
-  "Saturn",
-  "Uranus",
-  "Neptune",
-  "Pluto",
-];
+  // Create buttons
+  const buttonNames = [
+    "Sun",
+    "Mercury",
+    "Venus",
+    "Earth",
+    "Mars",
+    "Jupiter",
+    "Saturn",
+    "Uranus",
+    "Neptune",
+    "Pluto",
+  ];
 
-buttonNames.forEach((name, index) => {
-  const $button = $( 
-    `<button class="btnstyling pulse" id="btn${name}">${name}</button>` 
-  );
-  $button.on("click", function () {
-    updateInfo(index); // Update info based on button clicked
-    if (index === 0) {
-      camera.position.set(-50, 0, 20); // Sun
-    } else if (index === 1) {
-      camera.position.set(0, 0, 20); // Mercury
-    } else if (index === 2) {
-      camera.position.set(50, 0, 20); // Venus
-    } else if (index === 3) {
-      camera.position.set(100, 0, 20); // Earth
-    } else if (index === 4) {
-      camera.position.set(150, 0, 20); // Mars
-    } else if (index === 5) {
-      camera.position.set(200, 0, 20); // Jupiter
-    } else if (index === 6) {
-      camera.position.set(250, 0, 20); // Saturn
-    } else if (index === 7) {
-      camera.position.set(300, 0, 20); // Uranus
-    } else if (index === 8) {
-      camera.position.set(350, 0, 20); // Neptune
-    } else if (index === 9) {
-      camera.position.set(400, 0, 20); // Pluto
+  buttonNames.forEach((name, index) => {
+    const $button = $(
+      `<button class="btnstyling pulse" id="btn${name}">${name}</button>`
+    );
+    $button.on("click", function () {
+      updateInfo(index); // Update info based on button clicked
+      if (index === 0) {
+        camera.position.set(-50, 0, 20); // Sun
+      } else if (index === 1) {
+        camera.position.set(0, 0, 20); // Mercury
+      } else if (index === 2) {
+        camera.position.set(50, 0, 20); // Venus
+      } else if (index === 3) {
+        camera.position.set(100, 0, 20); // Earth
+      } else if (index === 4) {
+        camera.position.set(150, 0, 20); // Mars
+      } else if (index === 5) {
+        camera.position.set(200, 0, 20); // Jupiter
+      } else if (index === 6) {
+        camera.position.set(250, 0, 20); // Saturn
+      } else if (index === 7) {
+        camera.position.set(300, 0, 20); // Uranus
+      } else if (index === 8) {
+        camera.position.set(350, 0, 20); // Neptune
+      } else if (index === 9) {
+        camera.position.set(400, 0, 20); // Pluto
+      }
+    });
+    $buttonPanel.append($button).append("<br>");
+  });
+
+  // Function to update the displayed planet info
+  function updateInfo(planetIndex) {
+    const planet = planets[planetIndex];
+    $leftPanel.find("h1").html(planet.name);
+    $leftPanel.find("h4").html(planet.description);
+  }
+
+  const secretCode = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a",
+  ];
+  let current = 0;
+
+  $(document).keydown(function (event) {
+    if (event.key === secretCode[current]) {
+      current++;
+      if (current === secretCode.length) {
+        current = 0;
+        // Perform your desired action here
+        alert("Secret code activated!");
+        camera.position.set(500, 0, 20);
+        updateInfo(10);
+      }
+    } else {
+      current = 0;
     }
   });
-  $buttonPanel.append($button).append("<br>");
-});
-
-// Function to update the displayed planet info
-function updateInfo(planetIndex) {
-  const planet = planets[planetIndex];
-  $leftPanel.find("h1").html(planet.name);
-  $leftPanel.find("h4").html(planet.description);
-}
-
-const secretCode = [
-  "ArrowUp",
-  "ArrowUp",
-  "ArrowDown",
-  "ArrowDown",
-  "ArrowLeft",
-  "ArrowRight",
-  "ArrowLeft",
-  "ArrowRight",
-  "b",
-  "a",
-];
-let current = 0;
-
-$(document).keydown(function (event) {
-  if (event.key === secretCode[current]) {
-    current++;
-    if (current === secretCode.length) {
-      current = 0;
-      // Perform your desired action here
-      alert("Secret code activated!");
-      camera.position.set(500, 0, 20);
-      updateInfo(10);
-    }
-  } else {
-    current = 0;
-  }
-});
 });
