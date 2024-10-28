@@ -22,6 +22,15 @@ body {
   max-width: 25%; /* Limits the width of the panel */
   max-height: 70%; /* Prevents the panel from growing too tall */
   overflow-y: auto; /* Adds scrolling if the content is too long */
+  background-color: black;
+  border: 2px solid white;
+  padding: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust as needed */
 }
 
 .buttonPanel {
@@ -32,11 +41,23 @@ body {
   display: block;
   color: white;
   font-family: "Abel", sans-serif;
+  display: block;
+  font-family: "Abel", sans-serif;
+  max-width: 25%; /* Limits the width of the panel */
+  max-height: 70%; /* Prevents the panel from growing too tall */
+  overflow-y: auto; /* Adds scrolling if the content is too long */
+  background-color: black;
+  border: 2px solid white;
+  padding: 10px;
 }
 
 .btnstyling {
   font-size: 30px;
   margin-bottom: 1.25vh;
+  background-color: black;
+  border: none;
+  color: white;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 2px, rgba(255, 255, 255, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px;
 }
 
 /* .pulse:hover, 

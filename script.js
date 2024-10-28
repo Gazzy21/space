@@ -47,10 +47,22 @@ const plutoTexture = textureLoader.load("path_to_pluto_texture.jpg");
 
 camera.position.set(100, 0, 20);
 
+// Sun
+const sunGeometry = new THREE.SphereGeometry(8, 64, 32);
+const sunMaterial = new THREE.MeshStandardMaterial({
+  color: 0xFFFF00,
+  wireframe: true,
+});
+const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+scene.add(sun);
+sun.position.set(-50, 0, 0);
+sun.castShadow = true;
+
 // Mercury
 const mercuryGeometry = new THREE.SphereGeometry(8, 64, 32);
 const mercuryMaterial = new THREE.MeshStandardMaterial({
   map: mercuryTexture, // Apply the texture here
+  wireframe: true,
 });
 const mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
 scene.add(mercury);
@@ -61,7 +73,7 @@ mercury.castShadow = true;
 const venusGeometry = new THREE.SphereGeometry(8, 64, 32);
 const venusMaterial = new THREE.MeshStandardMaterial({
   color: 0xffff00,
-  wireframe: false,
+  wireframe: true,
 });
 const venus = new THREE.Mesh(venusGeometry, venusMaterial);
 scene.add(venus);
@@ -82,7 +94,7 @@ earth.castShadow = true;
 const moonGeometry = new THREE.SphereGeometry(2, 64, 32);
 const moonMaterial = new THREE.MeshStandardMaterial({
   color: 0xffffff,
-  wireframe: false,
+  wireframe: true,
 });
 const moon = new THREE.Mesh(moonGeometry, moonMaterial);
 scene.add(moon);
@@ -92,7 +104,7 @@ moon.castShadow = true;
 const marsGeometry = new THREE.SphereGeometry(8, 64, 32);
 const marsMaterial = new THREE.MeshStandardMaterial({
   color: 0xff4500,
-  wireframe: false,
+  wireframe: true,
 });
 const mars = new THREE.Mesh(marsGeometry, marsMaterial);
 scene.add(mars);
@@ -102,7 +114,7 @@ mars.castShadow = true;
 const jupiterGeometry = new THREE.SphereGeometry(8, 64, 32);
 const jupiterMaterial = new THREE.MeshStandardMaterial({
   color: 0x8b0000,
-  wireframe: false,
+  wireframe: true,
 });
 const jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
 scene.add(jupiter);
@@ -112,7 +124,7 @@ jupiter.castShadow = true;
 const saturnGeometry = new THREE.SphereGeometry(8, 64, 32);
 const saturnMaterial = new THREE.MeshStandardMaterial({
   color: 0xfffff0,
-  wireframe: false,
+  wireframe: true,
 });
 const saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
 scene.add(saturn);
@@ -122,7 +134,7 @@ saturn.castShadow = true;
 const uranusGeometry = new THREE.SphereGeometry(8, 64, 32);
 const uranusMaterial = new THREE.MeshStandardMaterial({
   color: 0x00ffff,
-  wireframe: false,
+  wireframe: true,
 });
 const uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
 scene.add(uranus);
@@ -141,7 +153,7 @@ neptune.castShadow = true;
 const plutoGeometry = new THREE.SphereGeometry(8, 64, 32);
 const plutoMaterial = new THREE.MeshStandardMaterial({
   color: 0x8b4513,
-  wireframe: false,
+  wireframe: true,
 });
 const pluto = new THREE.Mesh(plutoGeometry, plutoMaterial);
 scene.add(pluto);
@@ -151,7 +163,7 @@ pluto.castShadow = true;
 const blackholeGeometry = new THREE.SphereGeometry(8, 64, 32);
 const blackholeMaterial = new THREE.MeshStandardMaterial({
   color: 0x000000,
-  wireframe: false,
+  wireframe: true,
 });
 const blackhole = new THREE.Mesh(blackholeGeometry, blackholeMaterial);
 scene.add(blackhole);
@@ -207,7 +219,7 @@ function animate() {
   bhr1.rotation.z += 0.1;
 
   bhr2.rotation.z += 0.1;
-  
+
   renderer.render(scene, camera);
 }
 
@@ -304,16 +316,22 @@ $(document).ready(function () {
   const $container = $('<div class="container-fluid"></div>');
   const $leftPanel = $('<div class="contentPanel"><h1></h1><h4></h4></div>'); // Replaces col-3
   const $centerPanel = $("<div></div>"); // Replaces col-6
+
+  // Create a separate container for the button panel
+  const $buttonContainer = $('<div class="button-container"></div>');
   const $buttonPanel = $(
     '<div class="text-center buttonPanel"><h1>Milky Way</h1><hr></div>'
-  ); // Replaces col-2
+  );
 
-  // Append the panels to the container
-  $container.append($leftPanel, $centerPanel, $buttonPanel);
-  $("#info").append($container);
+  // Append the button panel to the button container
+  $buttonContainer.append($buttonPanel);
+
+  // Append all panels to the main container
+  $container.append($leftPanel, $centerPanel, $buttonContainer);
 
   // Add the container to the DOM
   $("#info").append($container);
+
 
   // Create buttons
   const buttonNames = [
