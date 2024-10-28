@@ -163,7 +163,7 @@ pluto.castShadow = true;
 const blackholeGeometry = new THREE.SphereGeometry(8, 64, 32);
 const blackholeMaterial = new THREE.MeshStandardMaterial({
   color: 0x000000,
-  wireframe: true,
+  wireframe: false,
 });
 const blackhole = new THREE.Mesh(blackholeGeometry, blackholeMaterial);
 scene.add(blackhole);
@@ -187,7 +187,7 @@ const bhr2Material = new THREE.MeshBasicMaterial({
 const bhr2 = new THREE.Mesh(bhr2Geometry, bhr2Material);
 scene.add(bhr2);
 bhr2.position.set(500, 0, 0);
-bhr2.rotation.x = -0.4 * Math.PI;
+bhr2.rotation.x = -0.45 * Math.PI;
 
 const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
 scene.add(ambientLight);
