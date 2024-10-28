@@ -35,8 +35,8 @@ body {
 
 .buttonPanel {
   position: fixed; /* Keeps the panel in place */
-  top: 20%;
-  right: 12.5%;
+  top: 17%;
+  right: 11%;
   z-index: 100;
   display: block;
   color: white;
@@ -44,7 +44,7 @@ body {
   display: block;
   font-family: "Abel", sans-serif;
   max-width: 25%; /* Limits the width of the panel */
-  max-height: 70%; /* Prevents the panel from growing too tall */
+  max-height: 100%; /* Prevents the panel from growing too tall */
   overflow-y: auto; /* Adds scrolling if the content is too long */
   background-color: black;
   border: 2px solid white;

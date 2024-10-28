@@ -50,7 +50,7 @@ camera.position.set(100, 0, 20);
 // Sun
 const sunGeometry = new THREE.SphereGeometry(8, 64, 32);
 const sunMaterial = new THREE.MeshStandardMaterial({
-  color: 0xFFFF00,
+  color: 0xffff00,
   wireframe: true,
 });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
@@ -172,7 +172,7 @@ blackhole.castShadow = true;
 
 const bhr1Geometry = new THREE.RingGeometry(12.5, 5, 32);
 const bhr1Material = new THREE.MeshBasicMaterial({
-  color: 0xEEDD82,
+  color: 0xeedd82,
   side: THREE.DoubleSide,
 });
 const bhr1 = new THREE.Mesh(bhr1Geometry, bhr1Material);
@@ -181,7 +181,7 @@ bhr1.position.set(500, 0, 0);
 
 const bhr2Geometry = new THREE.RingGeometry(12.5, 5, 32);
 const bhr2Material = new THREE.MeshBasicMaterial({
-  color: 0xEEDD82,
+  color: 0xeedd82,
   side: THREE.DoubleSide,
 });
 const bhr2 = new THREE.Mesh(bhr2Geometry, bhr2Material);
@@ -198,6 +198,8 @@ directionalLight.position.set(-30, 10, 15);
 directionalLight.castShadow = true;
 
 function animate() {
+  sun.rotation.y += 0.01;
+
   mercury.rotation.y += 0.01;
 
   venus.rotation.y += 0.01;
@@ -256,16 +258,7 @@ const planets = [
   },
   {
     name: `Earth`,
-    description: `Earth, our vibrant blue planet, is the third rock from the Sun and
-                the only known celestial body to support life. With diverse
-                ecosystems ranging from lush forests and expansive oceans to arid
-                deserts and icy tundras, Earth is a unique tapestry of
-                interconnected environments. Its atmosphere, rich in oxygen and
-                nitrogen, shields us from cosmic radiation while nurturing life. As
-                we navigate the challenges of climate change and environmental
-                degradation, our planet reminds us of the delicate balance that
-                sustains all living things. Earth is not just our home; it’s a
-                remarkable marvel of nature, deserving of our care and protection.`,
+    description: `Earth, often called the Blue Planet, is the third planet from the Sun. Its vibrant blue appearance is primarily due to the vast oceans that cover about 71% of its surface. Earth is unique in the solar system for its diverse ecosystems, abundant water, and the presence of life.`,
     color: 0x0000ff,
     cpos: (0, 0, 20),
   },
@@ -314,7 +307,9 @@ const planets = [
 
 $(document).ready(function () {
   const $container = $('<div class="container-fluid"></div>');
-  const $leftPanel = $('<div class="contentPanel"><h1></h1><h4></h4></div>'); // Replaces col-3
+  const $leftPanel = $(
+    '<div class="contentPanel"><h1></h1><hr><h4></h4></div>'
+  ); // Replaces col-3
   const $centerPanel = $("<div></div>"); // Replaces col-6
 
   // Create a separate container for the button panel
@@ -331,7 +326,6 @@ $(document).ready(function () {
 
   // Add the container to the DOM
   $("#info").append($container);
-
 
   // Create buttons
   const buttonNames = [
